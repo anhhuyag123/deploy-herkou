@@ -1,0 +1,53 @@
+﻿@using webgame.Models;
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+@{
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("tktg", "Admin", FormMethod.Post))
+        {
+            <h2 style="color:blue">Thống kê số hàng đã đặt theo ngày</h2>
+            <p>
+                <input type="date" id="myInput" name="txtdatestart" style="width:200px;height:34px"> Đến ngày
+                <input type="date" id="myInput2" name="txtdateend" style="width:200px;height:34px">
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span> Thống kê
+                </button>
+            </p>
+        }
+    </div>
+</div>
+<script>
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+    document.getElementById("myInput").value = today
+
+</script>
+<script>
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+    document.getElementById("myInput2").value = today
+</script>
+
+
+
+

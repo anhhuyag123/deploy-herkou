@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "huongdanmuahang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+
+                    <div class="brands_products">
+                        <!--brands_products-->
+                        <h2>Hệ máy</h2>
+                        @Html.Action("DongMay", "User")
+                    </div><!--/brands_products-->
+
+                    <div class="brands_products" style="margin-top:20px;margin-bottom:20px;">
+                        <!--brands_products-->
+                        <h2>Nhà sản xuất</h2>
+                        @Html.Action("NhaSanXuat", "User")
+                    </div><!--/brands_products-->
+
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right" id="chitiet">
+
+                <div class="category-tab">
+                    <!--category-tab-->
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="tshirt">
+                            <div class="col-sm-12">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <div class="col-sm-9 padding-right">
+                                                <div class="features_items">
+                                                    <!--features_items-->
+                                                    <br />
+                                                    <h2 class="title text-center">Hướng dẩn đăng ký tài khoản</h2>
+                                                    <ul style="background-color:white;color:black">
+                                                        <li>
+                                                            <p> B1 Nhấn vào đăng nhập trên header bên phải logo của của hàng</p>
+                                                        </li>
+                                                        <li>
+                                                            <p> B2 Nhập họ tên ,email,password vào from đăng ký</p>
+                                                        </li>
+                                                        <li>
+                                                            <p> B3 click đăng ký</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="features_items">
+                                                    <!--features_items-->
+                                                    <br />
+                                                    <h2 class="title text-center">Hướng dẩn mua hàng</h2>
+                                                    <ul style="background-color:white;color:black;">
+                                                        <li>
+                                                            <p> B1 Sau khi chon được sản phẩm thì click vào nút đặt hàng</p>
+                                                        </li>
+                                                        <li>
+                                                            <p> B2 Sau đó hệ thống sẽ tự chuyển bạn vào trang giỏ hàng</p>
+                                                        </li>
+                                                        <li>
+                                                            <p> B3 Kiểm tra xem thông tin có chính xác không</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>B4 Click vào nút đặt hàng</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>B5 Nếu bạn chưa có tài khoản thì vui lòng đăng ký</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>B6 Nếu bạn chưa đăng nhập thì vui lòng đăng nhập sau đó vào lại giỏ hàng</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>B7 Nhập địa chỉ và chọn hình thức thanh toán</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>B8 Click vào nút checkout</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <h2 class="title text-center" style="color:orange">Cảm ơn quý khách đã ghé thăm  =))</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/category-tab-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/contact.js"></script>
+<script src="~/Scripts/gmaps.js"></script>
+<script src="~/Scripts/html5shiv.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery.prettyPhoto.js"></script>
+<script src="~/Scripts/jquery.scrollUp.min.js"></script>
+<script src="~/Scripts/main.js"></script>
+<script src="~/Scripts/price-range.js"></script>
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+

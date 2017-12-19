@@ -1,0 +1,80 @@
+﻿@using webgame.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<KhachHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="header">
+            <h4 class="title">Bảng Thông Tin Khách Hàng</h4>
+            <p class="category">Quản lý thông tin khách hàng</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover">
+                <thead>
+                <th>Mã Khách Hàng</th>
+                <th>Tên Khách Hàng</th>
+                <th>Email</th>
+                <th>Số Điện Thoại</th>
+                <th>Ngày Sinh</th>
+                <th>Địa Chỉ</th>
+                <th>Tên Đăng Nhập</th>
+                <th>Mật Khẩu</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.MaKhachHang
+                            </td>
+                            <td>
+                                @item.TenKhachHang
+                            </td>
+                            <td>
+                                @item.Email
+                            </td>
+                            <td>
+                                @item.SDT
+                            </td>
+                            <td>
+                                @item.NgaySinh
+                            </td>
+                            <td>
+                                @item.DiaChi
+                            </td>
+                            <td>
+                                @item.TenDangNhap
+                            </td>
+                            <td>
+                                @item.MatKhau
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Deletekh", new { id = item.MaKhachHang })">
+                                    <img src="~/assets/img/icon_delete.png" width="20px" height="20px"> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="MenuTrang" style="text-align:center;">
+        @Html.PagedListPager(Model, page => Url.Action
+                    ("Index", new { page = page })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+</footer>
+
+

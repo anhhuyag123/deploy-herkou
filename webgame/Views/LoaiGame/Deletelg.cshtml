@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Deletelg";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+<h2>Delete</h2>
+<fieldset>
+    <legend><font color=red>  Bạn có thật sư muốn xóa!</font>    </legend>
+    <div class="display-lable"> Mã Loại Game:@Model.MaLoai</div>
+    <div class="display-lable"> Tên Loại Game  :@Model.TenLoai</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="@Url.Action("Index","LoaiGame")" class="btn btn-primary">
+            Trở Về
+        </a>
+    </p>
+}
+

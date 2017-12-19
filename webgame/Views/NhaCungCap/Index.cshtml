@@ -1,0 +1,64 @@
+﻿@using webgame.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<NhaSanXuat>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="header">
+            <h4 class="title">Bảng Thông Tin Nhà Sản Xuất</h4>
+            <p class="category">Quản lý thông tin nhà sản xuất</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover">
+                <thead>
+                <th>Mã Nhà Sản Xuất</th>
+                <th>Tên Nhà Sản Xuất</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.MaNhaSanXuat
+                            </td>
+                            <td>
+                                @item.TenNhaSanXuat
+                            </td>                          
+                            <td>
+                                <a href="@Url.Action("Editnhasx", new { id = item.MaNhaSanXuat })">
+                                    <img src="~/assets/img/icon_edit.png" width="20px" height="20px"> Edit
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Deletenhasx", new { id = item.MaNhaSanXuat })">
+                                    <img src="~/assets/img/icon_delete.png" width="20px" height="20px"> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<a href="@Url.Action("Them")">
+    <img src="~/assets/img/icon_edit.png" width="20px" height="20px"> Thêm
+</a>
+<footer class="footer">
+    <div class="MenuTrang" style="text-align:center;">
+        @Html.PagedListPager(Model, page => Url.Action
+                    ("Index", new { page = page })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+</footer>
+
+

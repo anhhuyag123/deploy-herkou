@@ -1,0 +1,91 @@
+﻿@using webgame.Models
+@model List<GioHang>
+
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Hình Ảnh</td>
+                        <td class="description">Tên Sản Phẩm</td>
+                        <td class="price">Đơn giá</td>
+                        <td class="quantity">Số lượng</td>
+                        <td class="total">Thành tiền</td>
+                        <td class="total">Xóa</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="~/images/@item.anh" alt="" style="width:80px; height:100px;" /></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">@item.iTenGame</a></h4>
+                                <p>Mã Sản phẩm: @item.iMaGame</p>
+                            </td>
+                            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { iMaSP = item.iMaGame }))
+                            {
+                                <td class="cart_price">
+                                    <p>@item.idongia,000 VNĐ</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <input class="cart_quantity_input" type="number" name="txtSoLuong" value="@item.isoluong" autocomplete="off" size="1">
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">@item.thanhtien,000 VNĐ</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete" href="@Url.Action("XoaGioHang", "GioHang", new { @iMaSP = item.iMaGame })#chitiet"><i class="fa fa-times"></i></a>
+                                </td>
+                                <td>
+                                    <input type="submit" value="Cập nhật" class="btn btn-default" />
+                                </td>
+                            }
+                        </tr>
+                    }
+                    <tr style="color:orange;">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><H3>Tổng tiền phả trả:</H3></td>
+                        <td><h3>@ViewBag.tongtien,000 VNĐ</h3></td>
+                        <td></td>
+                        <td>
+                            <a href="@Url.Action("DatHang", "GioHang")"><input type="submit" value="Thanh toán" class="btn btn-warning" /></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section> <!--/#cart_items-->
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/contact.js"></script>
+<script src="~/Scripts/gmaps.js"></script>
+<script src="~/Scripts/html5shiv.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery.prettyPhoto.js"></script>
+<script src="~/Scripts/jquery.scrollUp.min.js"></script>
+<script src="~/Scripts/main.js"></script>
+<script src="~/Scripts/price-range.js"></script>
+

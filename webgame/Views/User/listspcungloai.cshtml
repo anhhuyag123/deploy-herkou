@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<webgame.Models.SanPham>
+
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <img src="~/images/@item.HinhAnh" alt="" style="width:150px;height:200px;" />
+                            <h2>@item.GiaSale VNĐ</h2>
+                            <p>@item.TenSP</p>
+                            <a href="@Url.Action("themgiohang", "GioHang", new { @imagame = @item.MaSP, @strUrl = Request.Url.ToString() })">
+                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Đặt hàng</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="@Url.Action("chitiet","User",new { id = @item.MaSP})#chitiet"><i class="fa fa-plus-square"></i>Xem chi tiết</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+

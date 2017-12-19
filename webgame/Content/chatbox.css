@@ -1,0 +1,115 @@
+.sale-item{
+    text-decoration:line-through;
+}
+
+.wrap {
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    z-index: 9999999;
+    right: 0px;
+    bottom: 0px;
+}
+
+.x {
+    font-family: arial, helvetica;
+    background: rgba(78,86,101,0.8) none repeat scroll 0 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: -19px;
+    width: 25px;
+    z-index: 99999999;
+}
+
+    .x:hover {
+        cursor: pointer;
+    }
+
+.pxem {
+    text-align: left;
+    height: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    background: #34495E;
+    width: 100%;
+    bottom: 0;
+    display: block;
+    left: 0px;
+    position: absolute;
+    z-index: 999999999;
+    border-left: 1px solid #fff;
+}
+
+    .pxem a.axem {
+        color: #fff;
+        font-family: arial,helvetica;
+        font-size: 12px;
+        line-height: 23px;
+        padding-left: 5px;
+        text-decoration: none;
+    }
+
+        .pxem a.axem:hover {
+            text-decoration: underline;
+        }
+
+.alogo {
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    z-index: 999999999999;
+    width: 75px;
+    height: 20px;
+    display: inline-block;
+    background: #34495E;
+    border-left: 2px solid #2c3e50;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+.vnk-tuvan {
+    position: fixed;
+    width: 300px;
+    background: #34495E;
+    z-index: 99999999;
+    right: 0px;
+    bottom: 0px;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+    border-color: #2c3e50;
+}
+
+    .vnk-tuvan p {
+        color: #fff;
+        font-size: 15px;
+        margin: 0;
+        padding: 0 13px;
+        text-align: left;
+    }
+
+        .vnk-tuvan p a {
+            color: #fff;
+            font-size: 15px;
+            padding: 5px 0px 7px;
+            margin: 0;
+            display: inline-block;
+            font-family: arial, helvetica;
+            text-decoration: none;
+        }
+
+            .vnk-tuvan p a:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+        .vnk-tuvan p img {
+            float: right;
+            margin-top: 10px;
+        }

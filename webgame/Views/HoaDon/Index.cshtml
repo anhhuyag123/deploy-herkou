@@ -1,0 +1,61 @@
+﻿@using webgame.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<ChiTietDat>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="header">
+            <h4 class="title">Bảng Thông Tin Hóa Đơn</h4>
+            <p class="category">Quản lý thông tin hóa đơn</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover">
+                <thead>
+                <th>Tên Game</th>
+                <th>Số Lượng</th>
+                <th>Đơn Giá</th>
+                <th>Thành Tiền</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.SanPham.TenSP
+                            </td>
+                            <td>
+                                @item.SoLuong
+                            </td>
+                            <td>
+                                @item.DonGia
+                            </td>
+                            <td>
+                                @item.ThanhTien
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="MenuTrang" style="text-align:center;">
+        @Html.PagedListPager(Model, page => Url.Action
+                    ("Index", new { page = page })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+</footer>
+
+
+
+

@@ -1,0 +1,88 @@
+﻿@using webgame.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+@{
+    ViewBag.Title = "Databse";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="header">
+            <h4 class="title">Bảng Thông Tin Game</h4>
+            <p class="category">Quản lý thông tin Game</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover">
+                <thead>
+                <th>Mã Game</th>
+                <th>Tên Game</th>
+                <th>Hãng Game</th>
+                <th>Loại Game</th>
+                <th>Giá Bán</th>
+                <th>Ngày Cập Nhật</th>
+                <th>Dòng Game</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.MaSP
+                            </td>
+                            <td>
+                                @item.TenSP
+                            </td>
+                            <td>
+                                @item.NhaSanXuat.TenNhaSanXuat
+                            </td>
+                            <td>
+                                @item.LoaiGame.TenLoai
+                            </td>
+                            <td>
+                                @item.GiaBan
+                            </td>
+
+                            <td>
+                                @item.NgayCapNhat
+                            </td>
+                            <td>
+                                @item.HeMay.Tendong
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Editgane", new { id = item.MaSP })">
+                                    <img src="~/assets/img/icon_edit.png" width="20px" height="20px"> Edit
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Detailsgame", new { id = item.MaSP })">
+                                    <img src="~/assets/img/icon_edit.png" width="20px" height="20px"> Detalis
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Deletegame", new { id = item.MaSP })">
+                                    <img src="~/assets/img/icon_delete.png" width="20px" height="20px"> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="MenuTrang" style="text-align:center;">
+        @Html.PagedListPager(Model, page => Url.Action
+                    ("Databse", new { page = page })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+</footer>
+

@@ -1,0 +1,203 @@
+﻿
+
+@{
+    ViewBag.Title = "chitiet";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+
+                    <div class="brands_products">
+                        <!--brands_products-->
+                        <h2>Hệ máy</h2>
+                        @Html.Action("DongMay", "User")
+                    </div><!--/brands_products-->
+
+                    <div class="brands_products" style="margin-top:20px;">
+                        <!--brands_products-->
+                        <h2>Nhà sản xuất</h2>
+                        @Html.Action("NhaSanXuat", "User")
+                    </div><!--/brands_products-->
+
+                    <div class="price-range">
+                        <!--price-range-->
+                        <h2>Tìm theo giá</h2>
+                        <div class="well text-center">
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
+                            <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                        </div>
+                    </div><!--/price-range-->
+
+                    <div class="shipping text-center" style="margin-bottom:20px;">
+                        <!--shipping-->
+                        <img src="~/images/gf.gif" />
+                    </div><!--/shipping-->
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right" id="chitiet">
+                <div class="product-details">
+                    <!--product-details-->
+                    <div class="col-sm-5">
+                        <div class="view-product">
+                            <img src="~/images/@Model.HinhAnh" alt="" style="width:300px;height:320px;" />
+                            <h3>ZOOM</h3>
+                        </div>
+                        <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                    <a href=""><img src="~/images/@Model.HinhAnh" alt="" style="width:90px;height:84px;"></a>
+                                </div>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left item-control" href="#similar-product" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right item-control" href="#similar-product" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="product-information">
+                            <!--/product-information-->
+                            <img src="~/images/product-details/new.jpg" class="newarrival" alt="" />
+                            <h2>Tên sản phẩm: @Model.TenSP</h2>
+                            <h2>Mã sản phẩm: @Model.MaSP</h2>
+                            <span>
+                                @*Bat khuye mai*@
+                                @if (@Model.KhuyenMai == true)
+                                {
+                                    <p>
+                                        <h4 style="text-decoration:line-through;color:red;">Giá cũ: @Model.GiaBan VNĐ</h4>
+                                    </p>
+                                    <span>Giá khuyến mãi:<br>@Model.GiaSale VNĐ</span>
+                                }
+                                else
+                                {
+                                    <span>Giá bán:<br>@Model.GiaBan VNĐ</span>
+                                }
+                                <br>
+                                <a href="@Url.Action("themgiohang", "GioHang", new { @imagame = @Model.MaSP, @strUrl = Request.Url.ToString() })">
+                                    <button type="button" class="btn btn-fefault cart" style="margin-left:-3px;">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Mua ngay
+                                    </button>
+                                </a>
+                            </span>
+
+                            <p><b>Cấu hình:</b><br /> @Model.CauHinh</p>
+                            <a href=""><img src="~/images/product-details/share.png" class="share img-responsive" alt="" /></a>
+                        </div><!--/product-information-->
+                    </div>
+                </div><!--/product-details-->
+
+                <div class="category-tab">
+                    <!--category-tab-->
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tshirt" data-toggle="tab">Mô tả</a></li>
+                            <li><a href="#blazers" data-toggle="tab">Video</a></li>
+                            <li><a href="#reviews" data-toggle="tab">Bình luận</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="tshirt">
+                            <div class="col-sm-12">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            @Model.MoTa
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="blazers">
+                            <div class="col-sm-12">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <iframe src="https://youtube.com/embed/@Model.Video?autoplay=1" frameborder="0" width="800" height="300"></iframe>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade active in" id="reviews">
+                            <div class="col-sm-12">
+                                <div class="fb-comments" data-href="https://www.facebook.com/Bot-292716241201489/" data-width="750px" data-numposts="3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/category-tab-->
+                
+                <div class="recommended_items">
+                    <br />
+                    <!--recommended_items-->
+                    <h2 class="title text-center">Sản phẩm cùng loại</h2>
+
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                @Html.Action("listspcungloai", "User", new { id = Model.MaNhaSanXuat })
+                            </div>
+                        </div>
+                        @*<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>*@
+                    </div>
+                </div><!--/recommended_items-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/contact.js"></script>
+<script src="~/Scripts/gmaps.js"></script>
+<script src="~/Scripts/html5shiv.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery.prettyPhoto.js"></script>
+<script src="~/Scripts/jquery.scrollUp.min.js"></script>
+<script src="~/Scripts/main.js"></script>
+<script src="~/Scripts/price-range.js"></script>
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=666945436824463';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Detailsgame";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+
+<h2>Chi Tiết</h2>
+<fieldset>
+    <div class="display-lable"> Mã Game :@Model.MaSP</div>
+    <div class="display-lable"> Tên Sản Phẩm  :@Model.TenSP</div>
+    <div class="display-lable"> Nhà Sản Xuất :@Model.NhaSanXuat.TenNhaSanXuat</div>
+    <div class="display-lable"> Loại Game  :@Model.LoaiGame.TenLoai</div>
+    <div class="display-lable"> <img src="~/images/@Model.HinhAnh" style="width:200px;height:200px" /></div>
+    <div class="display-lable"> Mô Tả  :@Model.MoTa</div>
+    <div class="display-lable"> Tiêu Biểu  :@Model.TieuBieu</div>
+    <div class="display-lable"> Khuyến Mãi :@Model.KhuyenMai</div>
+    <div class="display-lable"> Video  :@Model.Video</div>
+    <div class="display-lable"> Giá Bán  :@Model.GiaBan</div>
+    <div class="display-lable"> Hệ số khuyến mãi :@Model.HesoKM</div>
+    <div class="display-lable"> Ngày Cập Nhật :@Model.NgayCapNhat</div>
+    <div class="display-lable"> Cấu Hình :@Model.CauHinh</div>
+    <div class="display-lable"> Dòng Game :@Model.HeMay.Tendong</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <a href="@Url.Action("Editgane", new { id = Model.MaSP })" class="btn btn-primary">
+            Sửa
+        </a>
+        <a href="@Url.Action("Deletegame", new { id = Model.MaSP })" class="btn btn-danger">
+            Xóa
+        </a>
+        <a href="@Url.Action("Databse","Database")" class="btn btn-primary">
+            Trở Về
+        </a>
+    </p>
+}
+

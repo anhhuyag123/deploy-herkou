@@ -1,0 +1,42 @@
+﻿@model webgame.Models.LoaiGame
+@{
+    ViewBag.Title = "Editlg";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-8">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Sữa Loại Game</h4>
+            </div>
+            <div class="content">
+                <form>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>ID (Mặc Định & Tự Tăng)</label>
+                                <input type="text" class="form-control" disabled placeholder="@Model.MaLoai">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Tên Loại Game</label>
+                                <input type="text" class="form-control" name="txttenlg" value="@Model.TenLoai">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Sữa Loại Game</button>
+                    <button type="button" class="btn database"><a href="@Url.Action("Index", "LoaiGame")">Về Database</a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+
+

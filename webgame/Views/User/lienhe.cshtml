@@ -1,0 +1,85 @@
+﻿
+
+@{
+    ViewBag.Title = "lienhe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<div id="contact-page" class="container">
+    <div class="bg">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="contact-form">
+                    <h2 class="title text-center">Gửi góp ý</h2>
+                    <div class="status alert alert-success" style="display: none"></div>
+                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" class="form-control" required="required" placeholder="Họ & Tên">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" class="form-control" required="required" placeholder="Tài khoản">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" class="form-control" required="required" placeholder="Mật Khẩu">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Nhập nội dung"></textarea>
+                        </div>
+                        <div class="form-group col-md-11">
+                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Gửi Góp Ý">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-info">
+                    <h2 class="title text-center">Liên Hệ</h2>
+                    <address>
+                        <p>E-Shopper Inc.</p>
+                        <p>475A Điện Biên Phủ, phường 25, Q.Bình Thạnh, TP.HCM</p>
+                        <p>Hồ Chí Minh, Việt Nam</p>
+                        <p>Mobile: 01694807600</p>
+                        <p>Fax: 1-714-252-0026</p>
+                        <p>Email: ducalwayslaugh96@gmail.com</p>
+                    </address>
+                    <div class="social-networks">
+                        <h2 class="title text-center">Mạng Xã Hội</h2>
+                        <ul>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/#contact-page-->
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/contact.js"></script>
+<script src="~/Scripts/gmaps.js"></script>
+<script src="~/Scripts/html5shiv.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery.prettyPhoto.js"></script>
+<script src="~/Scripts/jquery.scrollUp.min.js"></script>
+<script src="~/Scripts/main.js"></script>
+<script src="~/Scripts/price-range.js"></script>
+<div id="fb-root"></div>
+<div id="fb-root"></div>

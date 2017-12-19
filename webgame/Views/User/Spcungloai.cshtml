@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Spcungloai";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@model IEnumerable<webgame.Models.SanPham>
+
+
+@foreach (var item in Model)
+{
+
+
+    <img src="~/images/@item.HinhAnh" alt="" style="width:150px;height:200px;"/>
+    <h2>@item.GiaSale</h2>
+        <p>@item.TenSP</p>
+        <p>@item.MaNhaSanXuat</p>
+        <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+}
+

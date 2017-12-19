@@ -1,0 +1,157 @@
+﻿@model webgame.Models.SanPham
+@{
+    ViewBag.Title = "Editgane";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-8">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Sửa Game</h4>
+            </div>
+            <div class="content">
+                <form>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>ID (Mặc Định & Tự Tăng)</label>
+                                <input type="text" class="form-control" disabled placeholder="@Model.MaSP">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Tên Game</label>
+                                <input type="text" class="form-control" name="txttengame" value="@Model.TenSP">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Hãng Game</label>
+                                <br />
+                                @Html.DropDownList("Masx")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Thể Loại</label>
+                                <br />
+                                @Html.DropDownList("Maloai")
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Hình Ảnh</label>
+                                    <input type="file" class="form-control" name="txthinhanh" value="@Model.HinhAnh">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Giới Hiệu Chung</label>
+                                <textarea rows="5" class="form-control" name="txtgioithieu">@Model.MoTa</textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Tiêu Biểu</label>
+                                @if (@Model.TieuBieu == true)
+                                {
+                                    <input type="checkbox" name="txttieubieu" checked>
+                                }
+                                else
+                                {
+                                    <input type="checkbox" name="txttieubieu">
+                                }
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Khuyến Mãi</label>
+                                @if (@Model.KhuyenMai == true)
+                                {
+                                    <input type="checkbox" name="txtkhuyemai" checked>
+                                }else                            
+                                {
+                                    <input type="checkbox" name="txtkhuyemai">
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Video</label>
+                                <input type="text" class="form-control" name="txtvideo" value="@Model.Video">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Giá</label>
+                                <input type="number" class="form-control" name="txtgia" value="@float.Parse(@Model.GiaBan.ToString())">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Hệ số khuyến mãi</label>
+                                <input type="text" class="form-control" name="txthskm" value="@float.Parse(@Model.HesoKM.ToString())">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Ngày Đăng</label>
+                                <input type="date" class="form-control" name="txtngaydang" value="@Model.NgayCapNhat" id="ngay">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Cấu Hình</label>
+                                <textarea rows="5" class="form-control" name="txtcauhinh">@Model.CauHinh</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Dòng Máy</label>
+                                <br />
+                                @Html.DropDownList("Mahm")
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Sửa Game</button>
+                    <button type="button" class="btn database"><a href="@Url.Action("Databse","Database")">Về Database</a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+    document.getElementById("ngay").value = today;
+</script>
+
+

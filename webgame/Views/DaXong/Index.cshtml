@@ -1,0 +1,88 @@
+﻿@using webgame.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<DatHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="header">
+            <h4 class="title">Bảng Thông Tin Đơn Hàng</h4>
+            <p class="category">Quản lý thông tin đơn hàng</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover">
+                <thead>
+                <th>
+                    Số đơn đặt hàng
+                </th>
+                <th>
+                    Ngày đặt hàng
+                </th>
+                <th>
+                    Đã giao
+                </th>
+                <th> Ngày giao hàng</th>
+                <th> Tên người nhận</th>
+                <th> Địa chỉ nhận</th>
+                <th> Điện thoại nhận</th>
+                <th> Hoành thành thanh toán</th>
+                <th> Hoành thành giao hàng</th>
+                <th> Mã khách hàng</th>
+                <th>
+                    </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.SoDH
+                            </td>
+                            <td>
+
+                                @item.NgayDatHang
+                            </td>
+                            <td>
+                                @item.DaGiao
+                            </td>
+                            <td>
+                                @item.NgayGiaoHang
+                            </td>
+                            <td>
+                                @item.TenNguoiNhan
+                            </td>
+                            <td>
+                                @item.DiaChiNhan
+                            </td>
+                            <td>
+                                @item.DienThoaiNhan
+                            </td>
+                            <td>
+                                @item.HTThanhToan
+                            </td>
+                            <td>
+                                @item.HTGiaoHang
+                            </td>
+                            <td>
+                                @item.MaKhachHang
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="MenuTrang" style="text-align:center;">
+        @Html.PagedListPager(Model, page => Url.Action
+                    ("Index", new { page = page })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+

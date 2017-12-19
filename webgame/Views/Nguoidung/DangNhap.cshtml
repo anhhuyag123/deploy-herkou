@@ -1,0 +1,67 @@
+﻿
+
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <br>
+                    <div class="brands_products">
+                        <!--brands_products-->
+                        <h2>Hệ máy</h2>
+                        @Html.Action("DongMay", "User")
+                    </div><!--/brands_products-->
+
+                    <div class="brands_products" style="margin-top:20px;margin-bottom:10px;">
+                        <!--brands_products-->
+                        <h2>Nhà sản xuất</h2>
+                        @Html.Action("NhaSanXuat", "User")
+                    </div><!--/brands_products-->
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items" id="chitiet">
+                    <!--features_items-->
+                    <br />
+                    <h2 class="title text-center">Đăng nhập</h2>
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="signup-form">
+                            <!--sign up form-->
+                            <h4>@ViewBag.Thongbao</h4>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.ValidationSummary(true)
+                                <tr>
+                                    <td>
+                                        <h4>Nhập tài khoản:</h4>
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("Taikhoan")
+                                        @ViewData["loi2"]
+                                    </td>
+                                    <td>
+                                        <h4>Nhập mật khẩu:</h4>
+                                    </td>
+                                    <td>
+                                        @Html.Password("Matkhau")
+                                        @ViewData["loi3"]
+                                    </td>
+                                </tr>
+                                <input type="Submit" value="Đăng nhập" class="btn btn-default" />
+                            }
+                        </div><!--/sign up form-->
+                    </div>
+                </div><!--features_items-->
+
+            </div>
+        </div>
+    </div>
+</section>
+

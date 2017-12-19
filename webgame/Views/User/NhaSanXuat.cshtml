@@ -1,0 +1,20 @@
+﻿@model IEnumerable<webgame.Models.NhaSanXuat>
+
+@foreach (var item in Model)
+{
+
+    <div class="brands-name">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="@Url.Action("Sptheonhasanxuat","User",new { id = item.MaNhaSanXuat })#chitiet"><b>@item.TenNhaSanXuat</b></a></li>
+        </ul>
+    </div>
+
+}
+
+<style>
+    .brands-name:hover {
+        background-color: orange;
+        color: red;
+        cursor: pointer;
+    }
+</style>

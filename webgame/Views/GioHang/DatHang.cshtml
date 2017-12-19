@@ -1,0 +1,123 @@
+﻿@using webgame.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h2 style="text-align:center">Thông Tin Hàng Hóa</h2>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Hình Ảnh</td>
+                        <td class="description">Tên Sản Phẩm</td>
+                        <td class="price">Đơn giá</td>
+                        <td class="quantity">Số lượng</td>
+                        <td class="total">Thành tiền</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="~/images/@item.anh" alt="" style="width:80px; height:100px;" /></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">@item.iTenGame</a></h4>
+                                <p>Mã Sản phẩm: @item.iMaGame</p>
+                            </td>
+                            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { iMaSP = item.iMaGame }))
+                            {
+                                <td class="cart_price">
+                                    <p>@item.idongia,000 VNĐ</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        @item.isoluong
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">@item.thanhtien,000 VNĐ</p>
+                                </td>
+                            }
+                        </tr>
+                    }
+                    <tr style="color:orange;">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><H3>Tổng tiền phả trả:</H3></td>
+                        <td><h3>@ViewBag.tongtien,000 VNĐ</h3></td>
+                        <td></td>
+                        <td>
+                            <a href="@Url.Action("GioHang", "GioHang")"><input type="submit" value="Trở về giỏ hàng" class="btn btn-warning" /></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section> <!--/#cart_items-->
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/contact.js"></script>
+<script src="~/Scripts/gmaps.js"></script>
+<script src="~/Scripts/html5shiv.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery.prettyPhoto.js"></script>
+<script src="~/Scripts/jquery.scrollUp.min.js"></script>
+<script src="~/Scripts/main.js"></script>
+<script src="~/Scripts/price-range.js"></script>
+
+
+<h2 style="text-align:center">Thông Tin Đặt Hàng</h2>
+@{
+    KhachHang kh = (KhachHang)Session["Taikhoan"];
+}
+<table align="center" style="margin-bottom:20px;">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ Tên Khách Hàng :</td>
+            <td style="font-weight:bold">@kh.TenDangNhap</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa chỉ :</td>
+            <td style="font-weight:bold">@kh.DiaChi</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Điện Thoại :</td>
+            <td style="font-weight:bold">@kh.SDT</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày đặt :</td>
+            <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày giao hàng : </td>
+            <td style="font-weight:bold">
+                <input type="date" name="NgayGiaoHang" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-outline btn-primary">Đồng Ý Đặt Hàng</button>
+            </td>
+        </tr>
+    }
+</table>
+
+

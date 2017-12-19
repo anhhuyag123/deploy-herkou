@@ -1,0 +1,16 @@
+﻿@model IEnumerable<webgame.Models.LoaiGame>
+
+@foreach (var item in Model)
+{
+    <div>
+        <div class="mainmenu pull-left">
+            <ul class="nav navbar-nav collapse navbar-collapse">
+
+                <li><a href="@Url.Action("Sptheoloaigame","User",new { id = item.MaLoai})#chitiet">@item.TenLoai</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+}
+

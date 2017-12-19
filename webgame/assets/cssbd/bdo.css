@@ -1,0 +1,70 @@
+.Chartjs1 {
+  font-size: .85em;
+  width: 50%;
+  float: left;
+}
+
+.Chartjs2 {
+  font-size: .85em;
+  width: 50%;
+  float: right;
+}
+
+.Chartjs-figure {
+  height: 220px;
+}
+
+.Chartjs-legend {
+  list-style: none;
+  margin: 0;
+  padding: 1em 0 0;
+  text-align: center;
+  color: red;
+}
+
+.Chartjs-legend > li {
+  display: inline-block;
+  padding: .25em .5em;
+    color: red;
+}
+
+.Chartjs-legend > li > i {
+  display: inline-block;
+  height: 1em;
+  margin-right: .5em;
+  vertical-align: -.1em;
+  width: 1em;
+    color: red;
+}
+
+@media (--break-md) {
+  .Chartjs-figure {
+    margin-right: var(--gap);
+  }
+}
+
+.bieudo1{
+  width: 50%;
+  float: left;
+}
+
+.bieudo2{
+  width: 50%;
+  float: right;
+}
+
+.activeuser{
+  height: 40px;
+  width: 170px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  float: right;
+  background-color: blanchedalmond;
+}
+
+.textActiveUser{
+  padding-top: 11px;
+  font-size: 15pt;
+  text-align: center;
+  color: red;
+}

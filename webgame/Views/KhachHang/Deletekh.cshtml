@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Deletekh";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+<fieldset>
+    <legend><font color=red>  Bạn có thật sư muốn xóa khách hàng!</font>    </legend>
+    <div class="display-lable"> Mã Khách Hàng:@Model.MaKhachHang</div>
+    <div class="display-lable"> Tên Khách Hàng  :@Model.TenKhachHang</div>
+    <div class="display-lable"> Email  :@Model.Email</div>
+    <div class="display-lable"> Số Điện Thoại  :@Model.SDT</div>
+    <div class="display-lable"> Ngày Sinh  :@Model.NgaySinh</div>
+    <div class="display-lable"> Địa Chỉ  :@Model.DiaChi</div>
+    <div class="display-lable"> Tên Đăng Nhập :@Model.TenDangNhap</div>
+    <div class="display-lable"> Tên Khách Hàng  :@Model.MatKhau</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="@Url.Action("Index","KhachHang")" class="btn btn-primary">
+            Trở Về
+        </a>
+    </p>
+}
+
